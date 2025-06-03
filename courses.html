@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>الدورات | ICDL أكاديمي</title>
+  <link rel="stylesheet" href="assets/css/index.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ====== HERO ====== */
+    .courses-hero {
+      background: linear-gradient(120deg, #0069d9 80%, #eec60a 100%);
+      color: #fff;
+      padding: 54px 0 36px 0;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+    .courses-hero h1 {
+      font-size: 2.6em;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 24px #0069d9a0;
+    }
+    .courses-hero p {
+      font-size: 1.27em;
+      font-weight: 700;
+      color: #ffe26d;
+      margin-bottom: 0;
+      text-shadow: 0 2px 12px #1b2d5342;
+    }
+
+.courses-delivery-info {
+      background: #f6f9fc;
+      padding: 44px 0 18px 0;
+      margin-bottom: 18px;
+    }
+    .delivery-info-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 38px;
+      align-items: stretch;
+      justify-content: center;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .delivery-info-card {
+      background: #fff;
+      border-radius: 30px;
+      box-shadow: 0 4px 32px #0069d955;
+      padding: 30px 36px 28px 36px;
+      flex: 1 1 370px;
+      min-width: 280px;
+      max-width: 490px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      position: relative;
+      transition: transform 0.17s, box-shadow 0.17s;
+      border: 2.8px solid #eec60a18;
+      margin-bottom: 0;
+    }
+    .delivery-info-card:hover {
+      transform: translateY(-8px) scale(1.018);
+      box-shadow: 0 8px 36px #0069d9aa;
+      border-color: #eec60a66;
+    }
+    .delivery-info-icon {
+      position: absolute;
+      top: -32px;
+      left: 28px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 16px #0069d944;
+      padding: 10px 15px;
+      font-size: 2.15em;
+      color: #0074e4;
+      border: 3px solid #eec60a;
+      z-index: 1;
+      transition: color 0.2s, border 0.2s;
+    }
+    .delivery-info-card:hover .delivery-info-icon {
+      color: #eec60a;
+      border-color: #0074e4;
+    }
+    .delivery-info-title {
+      font-weight: bold;
+      color: #0074e4;
+      font-size: 1.27em;
+      margin-bottom: 10px;
+      margin-top: 18px;
+      text-align: right;
+      width: 100%;
+    }
+    .delivery-info-desc {
+      color: #222;
+      font-size: 1.07em;
+      line-height: 1.85;
+      margin-bottom: 0;
+      text-align: right;
+      width: 100%;
+    }
+    .delivery-info-highlight {
+      color: #eec60a;
+      font-weight: 900;
+      font-size: 1.08em;
+      display: inline-block;
+      margin: 3px 0;
+    }
+    .delivery-info-highlight.blue {
+      color: #0074e4;
+    }
+    .delivery-info-note {
+      text-align: center;
+      margin: 32px 0 0 0;
+      color: #0074e4;
+      font-weight: bold;
+      font-size: 1.12em;
+      letter-spacing: .1px;
+    }
+
+    /* تحسين الهاتف */
+    @media (max-width: 900px) {
+      .delivery-info-flex {
+        flex-direction: column;
+        gap: 28px;
+        align-items: center;
+      }
+      .delivery-info-card {
+        max-width: 97vw;
+        padding: 20px 9vw 18px 9vw;
+        margin-bottom: 0;
+      }
+      .delivery-info-icon {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -30px;
+      }
+    }
+    @media (max-width: 600px) {
+      .courses-delivery-info { padding: 20px 0 10px 0;}
+      .delivery-info-flex { gap: 18px;}
+      .delivery-info-card {
+        padding: 15px 3vw 12px 3vw;
+        border-radius: 18px;
+        max-width: 97vw;
+        min-width: 0;
+        box-shadow: 0 2px 14px #0069d922;
+      }
+      .delivery-info-icon {
+        font-size: 1.3em;
+        padding: 6px 10px;
+        top: -20px;
+      }
+      .delivery-info-title {
+        font-size: 1em;
+        margin-top: 12px;
+        margin-bottom: 7px;
+      }
+      .delivery-info-desc {
+        font-size: 0.98em;
+        line-height: 1.9;
+      }
+    }
+    @media (max-width: 400px) {
+      .delivery-info-card {
+        padding: 7px 1vw 8px 1vw;
+      }
+    }
+
+    /* ====== COURSES GRID ====== */
+    .courses-section {
+      background:#f8fafc;
+      padding:56px 0 12px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(305px, 1fr));
+      gap: 38px;
+      max-width: 1220px;
+      margin: 0 auto 20px auto;
+      padding: 0 10px;
+    }
+    .course-card {
+      background: linear-gradient(136deg, #fff 74%, #eec60a11 100%);
+      border-radius: 24px;
+      box-shadow: 0 4px 18px #0074e420;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.22s, box-shadow 0.22s;
+      min-height: 420px;
+      border: 2px solid #0069d90d;
+    }
+    .course-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 8px 34px #0074e450;
+      border-color: #eec60a;
+    }
+    .course-label {
+      position: absolute;
+      left: 0; top: 0;
+      background: linear-gradient(90deg, #eec60a 60%, #fff 110%);
+      color: #222;
+      padding: 7px 24px 7px 12px;
+      font-size: 1.07em;
+      font-weight: 900;
+      border-bottom-right-radius: 18px;
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      box-shadow: 0 1px 7px #0069d922;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      letter-spacing: 0.2px;
+      border-left: 2px solid #eec60a;
+      border-bottom: 2px solid #eec60a50;
+    }
+    .course-label.blue {
+      background: linear-gradient(90deg, #0074e4 70%, #eec60a 160%);
+      color: #fff;
+      border-left: 2px solid #0074e4;
+    }
+    .course-label.purple {
+      background: linear-gradient(90deg, #eec60a 60%, #0074e4 180%);
+      color: #fff;
+      border-left: 2px solid #eec60a;
+    }
+    .course-img {
+      height: 170px;
+      background: #f6f9fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .course-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-bottom: 3px solid #eec60a;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      transition: filter 0.3s;
+    }
+    .course-card:hover .course-img img {
+      filter: brightness(0.92) grayscale(0.08) blur(0.2px);
+    }
+    .course-info {
+      padding: 21px 20px 0 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+    }
+    .course-title {
+      font-size: 1.28em;
+      font-weight: 900;
+      color: #0074e4;
+      margin-bottom: 7px;
+      letter-spacing: 0.2px;
+      line-height: 1.29;
+    }
+    .course-desc {
+      font-size: 1.07em;
+      color: #222;
+      margin-bottom: 15px;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+    .course-delivery {
+      margin-bottom: 14px;
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .delivery-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1.01em;
+      font-weight: bold;
+      padding: 6px 17px;
+      border-radius: 16px;
+      background: #eec60a;
+      color: #111;
+      border: 2px solid #0074e4;
+      box-shadow: 0 1px 7px #0074e422;
+      transition: background 0.18s, color 0.18s, border 0.18s;
+    }
+    .delivery-badge.offline {
+      background: #0074e4;
+      color: #fff;
+      border-color: #eec60a;
+    }
+    .course-details {
+      display: flex;
+      gap: 11px;
+      flex-wrap: wrap;
+      margin-bottom: 13px;
+      color: #555;
+      font-size: 1.1em;
+      font-weight: 500;
+    }
+    .course-details span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #f8fafc;
+      border-radius: 7px;
+      padding: 4px 10px;
+      border: 1.5px solid #eec60a22;
+      font-size: 0.96em;
+      color: #0074e4;
+      font-weight: bold;
+      transition: background 0.15s;
+    }
+    .course-card .btn {
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 19px;
+      margin-bottom: 16px;
+      font-size: 1.14em;
+      padding: 11px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #eec60a33;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      background: linear-gradient(90deg,#eec60a 60%, #ffe26d 120%);
+      color: #0074e4;
+      transition: background 0.19s, color 0.16s, box-shadow 0.18s;
+      border: none;
+      outline: none;
+    }
+    .course-card .btn:hover {
+      background: linear-gradient(90deg,#0074e4 60%, #eec60a 120%);
+      color: #fff;
+      box-shadow: 0 5px 18px #0074e444;
+    }
+
+    @media (max-width: 930px) {
+      .courses-grid { grid-template-columns: 1fr; gap: 32px;}
+      .course-card { min-width: 0; }
+    }
+    @media (max-width: 400px) {
+      .course-card { min-width: 0; width: 99vw; }
+      .courses-grid { padding: 0 2px; }
+    }
+    /* ====== BENEFITS + INSTRUCTORS + STEPS: نفس تنسيقاتك السابقة ====== */
+    .courses-benefits {
+      background: #fff;
+      padding: 38px 0 10px 0;
+    }
+    .benefits-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 19px;
+      justify-content: center;
+      max-width: 900px;
+      margin: auto;
+    }
+    .benefit-item {
+      background: #f6f9fc;
+      border-radius: 12px;
+      padding: 22px 18px;
+      color: #1c2833;
+      font-weight: 700;
+      box-shadow: 0 2px 8px #eec60a22;
+      min-width: 200px;
+      max-width: 280px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.05em;
+    }
+    .benefit-item i {
+      color: #eec60a;
+      font-size: 1.4em;
+      margin-left: 8px;
+    }
+    .instructors-section {
+      background: #f8fafc;
+      padding: 40px 0 10px 0;
+    }
+    .instructors-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      max-width: 800px;
+      margin: auto;
+    }
+    .instructor-card {
+      background: #fff;
+      box-shadow: 0 2px 8px #0069d922;
+      border-radius: 12px;
+      padding: 16px 15px 14px 15px;
+      min-width: 210px;
+      max-width: 260px;
+      text-align: center;
+    }
+    .instructor-img img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 3px solid #eec60a;
+      object-fit: cover;
+      margin-bottom: 8px;
+    }
+    .instructor-name {
+      color: #0069d9;
+      font-weight: 900;
+      font-size: 1.07em;
+      margin-bottom: 2px;
+    }
+    .instructor-role {
+      color: #888;
+      font-size: 0.97em;
+      margin-bottom: 7px;
+    }
+    .instructor-bio {
+      color: #444;
+      font-size: 0.96em;
+    }
+    /* ====== STEPS ====== */
+    .steps-section {
+      background: #fff;
+      padding-bottom: 40px;
+    }
+    .steps-list {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 22px;
+    }
+    .step {
+      background: #f6f9fc;
+      padding: 20px 18px 14px 18px;
+      border-radius: 12px;
+      text-align: center;
+      min-width: 200px;
+      max-width: 220px;
+      box-shadow: 0 2px 8px #0069d922;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .step-icon {
+      background: #0074e4;
+      color: #fff;
+      border-radius: 50%;
+      padding: 17px 19px;
+      font-size: 1.6em;
+      margin-bottom: 8px;
+      margin-top: 3px;
+      box-shadow: 0 1px 7px #0074e422;
+    }
+    .step-content span {
+      font-size: 1.2em;
+      color: #eec60a;
+      font-weight: 900;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .step-content p {
+      font-size: 1em;
+      color: #222;
+      margin: 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <div class="navbar">
+      <div class="logo"><i class="fa-solid fa-laptop-code"></i> ICDL - Ziad Hagagy</div>
+      <nav id="mainNav">
+        <a href="index.html"><i class="fa fa-home"></i> الرئيسية</a>
+        <a href="courses.html" class="active"><i class="fa fa-book-open"></i> الدورات</a>
+        <a href="register.html"><i class="fa fa-user-plus"></i> الحجز</a>
+        <a href="dashboard.html"><i class="fa fa-user-shield"></i> ملفات المشتركين</a>
+      </nav>
+      <div class="hamburger" id="hamburgerBtn"><i class="fa fa-bars"></i></div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html"><i class="fa fa-home"></i> الرئيسية</a>
+      <a href="courses.html" class="active"><i class="fa fa-book-open"></i> الدورات</a>
+      <a href="register.html"><i class="fa fa-user-plus"></i> الحجز</a>
+      <a href="dashboard.html"><i class="fa fa-user-shield"></i> ملفات المشتركين</a>
+      <span class="close-mobile" id="closeMobile"><i class="fa fa-times"></i></span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="courses-hero">
+    <h1>الدورات الاحترافية المعتمدة</h1>
+    <p>جميع الدورات متوفرة بنظام الأونلاين (عن بعد) ونظام الأوفلاين (حضوري) حسب اختيارك!</p>
+  </section>
+
+  <!-- DELIVERY INFO (تصميم احترافي وجذاب ومتجاوب مع الهواتف) -->
+<section class="courses-delivery-info">
+  <div class="delivery-info-flex">
+    <div class="delivery-info-card">
+      <span class="delivery-info-icon"><i class="fa fa-globe"></i></span>
+      <div class="delivery-info-title">الدراسة أونلاين (عن بعد)</div>
+      <div class="delivery-info-desc">
+        يمكنك الدراسة من أي مكان عبر الإنترنت<br>
+        <span class="delivery-info-highlight blue">منصة تفاعلية | بث مباشر | تسجيلات متاحة</span><br>
+        تواصل مباشر مع المدرب وملفات الدورة تصلك إلكترونياً.
+      </div>
+    </div>
+    <div class="delivery-info-card">
+      <span class="delivery-info-icon"><i class="fa fa-school"></i></span>
+      <div class="delivery-info-title">الدراسة أوفلاين (حضوري)</div>
+      <div class="delivery-info-desc">
+        احضر بنفسك إلى مقر الأكاديمية أو أحد الفروع المعتمدة<br>
+        <span class="delivery-info-highlight">تدريب عملي مباشر | تجهيزات حديثة | بيئة تفاعلية</span><br>
+        دعم فني في القاعة وملفات مطبوعة عند الطلب.
+      </div>
+    </div>
+  </div>
+  <div class="delivery-info-note">
+    يمكنك اختيار النظام المناسب لك أثناء الحجز أو التواصل مع الدعم للاستفسار عن تفاصيل كل نظام.
+  </div>
+
+  <!-- COURSES GRID (احترافي وجذاب) -->
+  <section class="courses-section">
+    <div class="courses-grid">
+      <!-- Course 1 -->
+      <div class="course-card">
+        <div class="course-label"><i class="fa fa-star"></i> الأكثر طلباً</div>
+        <div class="course-img">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="ICDL Basic"/>
+        </div>
+        <div class="course-info">
+          <div class="course-title">ICDL للمبتدئين</div>
+          <div class="course-desc">أساسيات الحاسوب - Word - Excel - PowerPoint - الإنترنت والآمان الرقمي.</div>
+          <div class="course-delivery">
+            <span class="delivery-badge"><i class="fa fa-globe"></i> أونلاين</span>
+            <span class="delivery-badge offline"><i class="fa fa-school"></i> أوفلاين</span>
+          </div>
+          <div class="course-details">
+            <span><i class="fa fa-clock"></i> 24 ساعة تدريبية</span>
+            <span><i class="fa fa-certificate"></i> شهادة معتمدة</span>
+            <span><i class="fa fa-users"></i> للمبتدئين</span>
+          </div>
+          <a href="register.html?course=icdl-basic" class="btn"><i class="fa fa-user-plus"></i> احجز الآن</a>
+        </div>
+      </div>
+      <!-- Course 2 -->
+      <div class="course-card">
+        <div class="course-label blue"><i class="fa fa-chalkboard-user"></i> جديد</div>
+        <div class="course-img">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="ICDL Teachers"/>
+        </div>
+        <div class="course-info">
+          <div class="course-title">ICDL للمعلمين</div>
+          <div class="course-desc">مهارات التعليم الرقمي وتصميم الدروس وادارة الصفوف عبر التطبيقات الحديثة.</div>
+          <div class="course-delivery">
+            <span class="delivery-badge"><i class="fa fa-globe"></i> أونلاين</span>
+            <span class="delivery-badge offline"><i class="fa fa-school"></i> أوفلاين</span>
+          </div>
+          <div class="course-details">
+            <span><i class="fa fa-clock"></i> 32 ساعة</span>
+            <span><i class="fa fa-person-chalkboard"></i> للمعلمين</span>
+            <span><i class="fa fa-laptop"></i> عملي وتطبيقي</span>
+          </div>
+          <a href="register.html?course=icdl-teacher" class="btn"><i class="fa fa-user-plus"></i> احجز الآن</a>
+        </div>
+      </div>
+      <!-- Course 3 -->
+      <div class="course-card">
+        <div class="course-label purple"><i class="fa fa-layer-group"></i> متقدم</div>
+        <div class="course-img">
+          <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=600&q=80" alt="ICDL Advanced"/>
+        </div>
+        <div class="course-info">
+          <div class="course-title">ICDL المتقدم</div>
+          <div class="course-desc">تحليل بيانات - قواعد بيانات - العروض التقديمية - أمان المعلومات.</div>
+          <div class="course-delivery">
+            <span class="delivery-badge"><i class="fa fa-globe"></i> أونلاين</span>
+            <span class="delivery-badge offline"><i class="fa fa-school"></i> أوفلاين</span>
+          </div>
+          <div class="course-details">
+            <span><i class="fa fa-clock"></i> 36 ساعة</span>
+            <span><i class="fa fa-layer-group"></i> متقدم</span>
+            <span><i class="fa fa-award"></i> مشاريع تطبيقية</span>
+          </div>
+          <a href="register.html?course=icdl-advanced" class="btn"><i class="fa fa-user-plus"></i> احجز الآن</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="courses-benefits">
+    <h2 class="section-title">مزايا الالتحاق بدورات ICDL أكاديمي</h2>
+    <div class="benefits-list">
+      <div class="benefit-item"><i class="fa fa-user-tie"></i> مدربين معتمدين بخبرة ميدانية</div>
+      <div class="benefit-item"><i class="fa fa-certificate"></i> شهادات رسمية معترف بها</div>
+      <div class="benefit-item"><i class="fa fa-handshake"></i> دعم فني ومتابعة شخصية</div>
+      <div class="benefit-item"><i class="fa fa-laptop"></i> تطبيقات عملية وملفات حصرية</div>
+      <div class="benefit-item"><i class="fa fa-calendar-check"></i> مرونة في المواعيد</div>
+      <div class="benefit-item"><i class="fa fa-wallet"></i> أسعار تنافسية وعروض دورية</div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTORS -->
+  <section class="instructors-section">
+    <h2 class="section-title">طاقم التدريب</h2>
+    <div class="instructors-list">
+      <div class="instructor-card">
+        <div class="instructor-img"><img src="https://randomuser.me/api/portraits/men/25.jpg" alt="Instructor"></div>
+        <div class="instructor-name">م/ أحمد المصري</div>
+        <div class="instructor-role">مدرب معتمد ICDL</div>
+        <div class="instructor-bio">خبرة 8 سنوات في تدريب الحاسب وتطبيقات الأوفيس، مدرب معتمد في أكثر من 3 جهات أكاديمية.</div>
+      </div>
+      <div class="instructor-card">
+        <div class="instructor-img"><img src="https://randomuser.me/api/portraits/women/61.jpg" alt="Instructor"></div>
+        <div class="instructor-name">أ. سارة مصطفى</div>
+        <div class="instructor-role">محاضرة تقنية</div>
+        <div class="instructor-bio">متخصصة في التعليم الرقمي وتصميم المناهج التفاعلية، خبرة في تدريب المعلمين.</div>
+      </div>
+      <div class="instructor-card">
+        <div class="instructor-img"><img src="https://randomuser.me/api/portraits/men/38.jpg" alt="Instructor"></div>
+        <div class="instructor-name">د. محمد صلاح</div>
+        <div class="instructor-role">خبير قواعد بيانات</div>
+        <div class="instructor-bio">دكتوراه في علوم الحاسب، محاضر جامعي وخبير تطوير نظم قواعد البيانات وتحليل البيانات.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS SECTION (reuse) -->
+  <section class="steps-section">
+    <h2 class="section-title">كيف تلتحق بالدورة؟</h2>
+    <div class="steps-list">
+      <div class="step">
+        <div class="step-icon"><i class="fa fa-mouse-pointer"></i></div>
+        <div class="step-content">
+          <span>1</span>
+          <p>اختر الدورة المناسبة من القائمة أعلاه</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon"><i class="fa fa-user-edit"></i></div>
+        <div class="step-content">
+          <span>2</span>
+          <p>املأ بياناتك في صفحة الحجز</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon"><i class="fa fa-credit-card"></i></div>
+        <div class="step-content">
+          <span>3</span>
+          <p>استكمل الدفع بمختلف الطرق واستلم التأكيد</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon"><i class="fa fa-cloud-download-alt"></i></div>
+        <div class="step-content">
+          <span>4</span>
+          <p>ابدأ تعلمك واطلع على ملفات الدورة</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM NAVIGATION (Mobile only) -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="index.html"><i class="fa fa-home"></i><span>الرئيسية</span></a>
+    <a href="courses.html" class="active"><i class="fa fa-book-open"></i><span>الدورات</span></a>
+    <a href="register.html"><i class="fa fa-user-plus"></i><span>الحجز</span></a>
+    <a href="dashboard.html"><i class="fa fa-user-shield"></i><span>الملفات</span></a>
+  </nav>
+
+  <!-- FOOTER -->
+    <footer class="main-footer">
+  <style>
+    .main-footer {
+      background: linear-gradient(120deg, #1b2d53 80%, #eec60a 100%);
+      color: #fff;
+      padding: 0;
+      margin-top: 40px;
+      font-family: 'Cairo', Arial, sans-serif;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      box-shadow: 0 -2px 16px #2224a12d;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 18px 10px 18px;
+      gap: 24px;
+    }
+    .footer-col {
+      flex: 1 1 220px;
+      margin-bottom: 12px;
+      min-width: 200px;
+    }
+    .footer-logo {
+      font-size: 1.22em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-logo i {
+      color: #eec60a;
+      font-size: 1.4em;
+    }
+    .footer-col p {
+      color: #f7f7f7;
+      font-size: 1.07em;
+      margin-bottom: 6px;
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      color: #eec60a;
+      font-size: 1.13em;
+      font-weight: bold;
+      margin-bottom: 8px;
+      margin-top: 0;
+    }
+    .footer-col.links h4 {
+      margin-bottom: 7px;
+      margin-top: 0;
+      padding-top: 0;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-col ul li {
+      margin-bottom: 7px;
+    }
+    .footer-col ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.09em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+      line-height: 1.7;
+    }
+    .footer-col ul li a:hover {
+      color: #eec60a;
+      text-decoration: underline;
+    }
+    .footer-col.contact p {
+      font-size: 1.07em;
+      margin: 0 0 7px 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .footer-social {
+      margin-top: 7px;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-start;
+    }
+    .footer-social a {
+      color: #fff;
+      background: #eec60a;
+      border-radius: 50%;
+      padding: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.13em;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .footer-social a:hover {
+      background: #fff;
+      color: #1b2d53;
+      transform: scale(1.13) rotate(-8deg);
+    }
+    .footer-bottom {
+      background: #142042;
+      color: #eec60a;
+      text-align: center;
+      padding: 10px 0 7px 0;
+      font-size: 1.08em;
+      letter-spacing: 0.5px;
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+      margin-top: 0;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .footer-copyright {
+      color: #fff;
+      font-size: 0.96em;
+      margin-top: 7px;
+      margin-bottom: 0;
+      opacity: 0.95;
+      text-align: center;
+      letter-spacing: .2px;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0;
+      line-height: 1.7;
+      display: block;
+    }
+
+    /* ==== Responsive ==== */
+    @media (max-width: 900px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 18px 5vw 7px 5vw;
+      }
+      .footer-col {
+        min-width: unset;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .footer-col.links h4 {
+        margin-bottom: 7px;
+      }
+    }
+    @media (max-width: 600px) {
+      .main-footer {
+        border-radius: 17px 17px 0 0;
+        margin-top: 18px;
+        padding-bottom: 60px; /* حتى لا يتم تغطية الفوتر من القائمة السفلية */
+      }
+      .footer-container {
+        padding: 11px 2vw 4px 2vw;
+        gap: 0;
+      }
+      .footer-col {
+        margin-bottom: 7px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .footer-logo { font-size: 1.04em;}
+      .footer-bottom { font-size: 0.97em;}
+      .footer-col,
+      .footer-col * {
+        text-align: center !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+      .footer-col h4 {
+        margin-bottom: 6px;
+      }
+      .footer-social {
+        justify-content: center !important;
+        margin-bottom: 5px;
+        margin-top: 5px;
+      }
+      .copy{
+        margin-bottom: 1rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .footer-container { padding: 7px 1vw 3px 1vw; }
+      .footer-col h4 { font-size: 1em; }
+      .footer-bottom { font-size: 0.93em;}
+    }
+  </style>
+  <div class="footer-container">
+    <div class="footer-col brand">
+      <div class="footer-logo">
+        <i class="fa-solid fa-laptop-code"></i>
+        <span>ICDL - Ziad Hagagy</span>
+      </div>
+      <p>تدريب احترافي وعملي في مجال الحاسوب بشهادات معتمدة ودعم مستمر.</p>
+    </div>
+    <div class="footer-col links">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="index.html"><i class="fa fa-home"></i> الرئيسية</a></li>
+        <li><a href="courses.html"><i class="fa fa-book-open"></i> الدورات</a></li>
+        <li><a href="register.html"><i class="fa fa-user-plus"></i> الحجز</a></li>
+        <li><a href="dashboard.html"><i class="fa fa-user-shield"></i> ملفات المشتركين</a></li>
+      </ul>
+    </div>
+    <div class="footer-col contact">
+      <h4>تواصل معنا</h4>
+      <p><i class="fa fa-envelope"></i> info@icdl-academy.com</p>
+      <p><i class="fa fa-phone"></i> 01012345678</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom copy">
+    جميع الحقوق محفوظة &copy; 2025 ICDL م/ زياد حجاجي
+  </div>
+</footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

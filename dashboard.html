@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>ملفات المشتركين | ICDL أكاديمي</title>
+  <link rel="stylesheet" href="assets/css/index.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+      direction: rtl;
+      font-family: 'Cairo', Arial, sans-serif;
+      min-height: 100vh;
+      background: #f8fafc;
+    }
+    .dashboard-hero {
+      background: linear-gradient(120deg, #0069d9 80%, #eec60a 100%);
+      color: #fff;
+      padding: 40px 0 20px 0;
+      text-align: center;
+    }
+    .dashboard-hero h1 {
+      font-size: 2.1em;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    .dashboard-hero p {
+      font-size: 1.1em;
+      font-weight: 700;
+      color: #eec60a;
+    }
+    .dashboard-section {
+      max-width: 450px;
+      margin: 30px auto 0 auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 8px #0069d922;
+      padding: 28px 20px;
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 250px;
+      position: relative;
+      transition: max-width 0.2s, padding 0.2s;
+    }
+    .dashboard-section h2 {
+      font-size: 1.3em;
+      color: #0069d9;
+      font-weight: bold;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .login-form label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 7px;
+      margin-top: 12px;
+    }
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      margin-bottom: 14px;
+      font-family: 'Cairo', Arial, sans-serif;
+      font-size: 1em;
+      background: #f8fafc;
+      transition: border .2s;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .login-form input:focus {
+      border: 1.5px solid #0069d9;
+      outline: none;
+    }
+    .login-form .btn {
+      width: 100%;
+      margin: 0;
+      margin-top: 6px;
+    }
+    .login-form .login-error {
+      color: #e74c3c;
+      background: #fff0f0;
+      border-radius: 7px;
+      text-align: center;
+      padding: 7px 0;
+      font-size: 1em;
+      margin-bottom: 7px;
+      margin-top: 8px;
+      display: none;
+    }
+    .user-profile-section {
+      background: #f8fafc;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #eec60a22;
+      padding: 16px 10px;
+      margin-bottom: 15px;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .user-profile-section .profile-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.02em;
+    }
+    .user-profile-section .profile-label { color: #0069d9; font-weight: bold; }
+    .user-files-section {
+      display: none;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .course-select-section {
+      margin-bottom: 12px;
+    }
+    .course-select-section label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .course-select-section select {
+      width: 100%;
+      padding: 8px 8px;
+      border-radius: 9px;
+      border: 1.5px solid #eee;
+      font-family: 'Cairo', Arial, sans-serif;
+      font-size: 1em;
+      background: #f8fafc;
+      margin-bottom: 10px;
+      transition: border .2s;
+      outline: none;
+    }
+    .course-select-section select:focus {
+      border: 1.5px solid #0069d9;
+      outline: none;
+    }
+    .files-list {
+      background: #f8fafc;
+      border-radius: 12px;
+      box-shadow: 0 1px 6px #eec60a22;
+      padding: 18px 10px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      min-height: 80px;
+    }
+    .files-list h3 {
+      font-size: 1.08em;
+      color: #0069d9;
+      margin-bottom: 11px;
+      font-weight: bold;
+      text-align: right;
+    }
+    .file-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 9px;
+      background: #fff;
+      border-radius: 7px;
+      padding: 7px 12px;
+      box-shadow: 0 1px 4px #0069d911;
+      font-size: 1em;
+    }
+    .file-item i {
+      color: #eec60a;
+      font-size: 1.1em;
+    }
+    .file-item .filename {
+      flex-grow: 1;
+      color: #333;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .file-item .download-link {
+      background: #0069d9;
+      color: #fff;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 0.98em;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-right: 7px;
+    }
+    .file-item .download-link:hover {
+      background: #004a99;
+    }
+    /* الروابط الإضافية */
+    .links-section {
+      background: #f8fafc;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px #eec60a22;
+      padding: 15px 10px 10px 10px;
+      margin-bottom: 16px;
+      margin-top: 14px;
+      text-align: right;
+    }
+    .links-section h4 {
+      color: #222;
+      font-size: 1.13em;
+      font-weight: bold;
+      margin-bottom: 7px;
+      text-align: right;
+      letter-spacing: 0.5px;
+    }
+    .links-section ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .links-section li {
+      margin-bottom: 7px;
+      padding-right: 4px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .links-section li:last-child { margin-bottom: 0; }
+    .links-section a {
+      color: #2453d1;
+      text-decoration: underline;
+      font-weight: 500;
+      font-size: 1.09em;
+      transition: color 0.2s;
+      direction: rtl;
+      unicode-bidi: isolate;
+      word-break: break-word;
+      line-height: 1.8;
+      display: inline-block;
+    }
+    .links-section a:hover { color: #eec60a; }
+    .links-section .fa-file { color: #222;font-size: 1.07em;}
+    /* دعم */
+    .support-question-section {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px #0069d911;
+      padding: 18px 10px 13px 10px;
+      margin-bottom: 11px;
+      margin-top: 30px;
+      text-align: right;
+    }
+    .support-question-section h4 {
+      color: #222;
+      font-size: 1.12em;
+      font-weight: bold;
+      margin-bottom: 11px;
+      text-align: right;
+      letter-spacing: 0.5px;
+    }
+    .support-question-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      align-items: flex-end;
+    }
+    .support-question-section textarea {
+      width: 100%;
+      min-height: 55px;
+      border-radius: 8px;
+      border: 1.5px solid #eee;
+      resize: vertical;
+      font-size: 1em;
+      padding: 7px 8px;
+      font-family: 'Cairo', Arial, sans-serif;
+      background: #f8fafc;
+      transition: border .2s;
+      outline: none;
+      margin-bottom: 7px;
+      direction: rtl;
+      text-align: right;
+    }
+    .support-question-section textarea:focus {
+      border: 1.5px solid #0069d9;
+      outline: none;
+      background: #f6f9fc;
+    }
+    .support-question-section button {
+      background: #2453d1;
+      color: #fff;
+      border-radius: 7px;
+      padding: 7px 18px;
+      border: none;
+      font-weight: bold;
+      font-size: 1.06em;
+      cursor: pointer;
+      align-self: flex-end;
+      transition: background 0.2s;
+      margin-bottom: 7px;
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .support-question-section button i {
+      font-size: 1.06em;
+      margin-left: 2px;
+    }
+    .support-question-section button:hover { background: #e74c3c; color: #fff;}
+    .support-question-section .support-success,
+    .support-question-section .support-error {
+      font-size: 1.05em;
+      margin-top: 7px;
+      text-align: right;
+      display: block;
+      padding-right: 2px;
+      padding-left: 2px;
+      line-height: 1.7;
+    }
+    .support-question-section .support-success {
+      color: #218838;
+      margin-bottom: 2px;
+    }
+    .support-question-section .support-error {
+      color: #c0392b;
+      margin-bottom: 2px;
+    }
+    /* زر تحميل الشهادة الجديد */
+    .certificate-link {
+      background: #e74c3c;
+      color: #fff !important;
+      border-radius: 7px;
+      padding: 8px 18px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.06em;
+      display: inline-block;
+      transition: background 0.2s;
+      border: none;
+      outline: none;
+      margin-right: 0;
+      margin-left: 0;
+      text-align: center;
+    }
+    .certificate-link:hover {
+      background: #c0392b;
+      color: #fff !important;
+    }
+    .dashboard-section .logout-btn {
+      display: none;
+      margin: 18px auto 0 auto;
+      background: #e74c3c;
+      color: #fff;
+      border-radius: 7px;
+      padding: 8px 14px;
+      border: none;
+      font-weight: bold;
+      font-size: 1.03em;
+      cursor: pointer;
+      width: 100%;
+      max-width: 180px;
+      transition: background 0.2s;
+    }
+    .dashboard-section .logout-btn:hover {
+      background: #c0392b;
+    }
+    @media (max-width: 600px) {
+      .dashboard-section {
+        max-width: 97vw;
+        padding: 12px 4vw 17px 4vw;
+      }
+      .files-list,
+      .certificate-section,
+      .links-section,
+      .support-question-section {
+        padding: 10px 2vw;
+      }
+      .file-item {
+        padding: 7px 2vw;
+      }
+    }
+    @media (max-width: 430px) {
+      .dashboard-hero h1 { font-size: 1.2em;}
+      .dashboard-hero p { font-size: 1em;}
+      .dashboard-section { padding: 7px 2vw;}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <div class="navbar">
+      <div class="logo"><i class="fa-solid fa-laptop-code"></i> ICDL - Ziad Hagagy</div>
+      <nav id="mainNav">
+        <a href="index.html"><i class="fa fa-home"></i> الرئيسية</a>
+        <a href="courses.html"><i class="fa fa-book-open"></i> الدورات</a>
+        <a href="register.html"><i class="fa fa-user-plus"></i> الحجز</a>
+        <a href="dashboard.html" class="active"><i class="fa fa-user-shield"></i> ملفات المشتركين</a>
+      </nav>
+      <div class="hamburger" id="hamburgerBtn"><i class="fa fa-bars"></i></div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html"><i class="fa fa-home"></i> الرئيسية</a>
+      <a href="courses.html"><i class="fa fa-book-open"></i> الدورات</a>
+      <a href="register.html"><i class="fa fa-user-plus"></i> الحجز</a>
+      <a href="dashboard.html" class="active"><i class="fa fa-user-shield"></i> ملفات المشتركين</a>
+      <span class="close-mobile" id="closeMobile"><i class="fa fa-times"></i></span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="dashboard-hero">
+    <h1>ملفات المشتركين</h1>
+    <p>سجّل دخولك واطلع على ملفاتك الخاصة بالدورة التي اشتركت بها</p>
+  </section>
+
+  <!-- DASHBOARD SECTION -->
+  <section class="dashboard-section">
+    <!-- تسجيل الدخول -->
+    <form class="login-form" id="loginForm" autocomplete="off">
+      <div class="login-error" id="loginError">اسم المستخدم أو كلمة المرور غير صحيحة</div>
+      <label for="username">اسم المستخدم</label>
+      <input type="text" id="username" name="username" required placeholder="أدخل اسم المستخدم">
+      <label for="password">الرقم السري</label>
+      <input type="password" id="password" name="password" required placeholder="أدخل الرقم السري">
+      <button type="submit" class="btn big-btn"><i class="fa fa-lock"></i> دخول</button>
+    </form>
+
+    <!-- بيانات المستخدم بعد تسجيل الدخول -->
+    <div class="user-profile-section" id="userProfileSection" style="display:none">
+      <div class="profile-row"><span class="profile-label">الاسم:</span> <span id="profileName"></span></div>
+      <div class="profile-row"><span class="profile-label">تاريخ الدورة:</span> <span id="profileDate"></span></div>
+    </div>
+
+    <!-- ملفات المستخدم بعد تسجيل الدخول -->
+    <div class="user-files-section" id="userFilesSection">
+      <div class="course-select-section">
+        <label for="userCourse">الدورة المسجلة</label>
+        <select id="userCourse" name="userCourse" required>
+          <!-- سيتم تعبئتها ديناميكيا -->
+        </select>
+      </div>
+      <div class="certificate-section" id="certificateSection" style="display:none">
+        <span id="certificateMessage"><i class="fa fa-certificate"></i> الشهادة متاحة للتحميل</span>
+        <a href="#" id="certificateLink" class="certificate-link" download style="display:none;">تحميل الشهادة</a>
+      </div>
+      <div class="files-list" id="filesList">
+        <!-- سيتم عرض ملفات الكورس هنا -->
+      </div>
+      <div class="links-section" id="linksSection" style="display:none">
+        <h4>ملفات إضافية</h4>
+        <ul id="courseLinksList"></ul>
+      </div>
+      <div class="support-question-section">
+        <h4>إرسال سؤال أو استفسار للدعم</h4>
+        <form id="supportForm">
+          <textarea id="supportMessage" placeholder="اكتب سؤالك أو استفسارك هنا"></textarea>
+          <button type="submit"><i class="fa fa-paper-plane"></i> إرسال</button>
+          <div class="support-success" id="supportSuccess" style="display:none;">تم إرسال سؤالك بنجاح!</div>
+          <div class="support-error" id="supportError" style="display:none;">حدث خطأ أثناء الإرسال، حاول مرة أخرى.</div>
+        </form>
+      </div>
+      <button class="logout-btn" id="logoutBtn"><i class="fa fa-sign-out-alt"></i> تسجيل الخروج</button>
+    </div>
+  </section>
+
+  <!-- BOTTOM NAVIGATION (Mobile only) -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="index.html"><i class="fa fa-home"></i><span>الرئيسية</span></a>
+    <a href="courses.html"><i class="fa fa-book-open"></i><span>الدورات</span></a>
+    <a href="register.html"><i class="fa fa-user-plus"></i><span>الحجز</span></a>
+    <a href="dashboard.html" class="active"><i class="fa fa-user-shield"></i><span>الملفات</span></a>
+  </nav>
+
+  <!-- FOOTER -->
+    <footer class="main-footer">
+  <style>
+    .main-footer {
+      background: linear-gradient(120deg, #1b2d53 80%, #eec60a 100%);
+      color: #fff;
+      padding: 0;
+      margin-top: 40px;
+      font-family: 'Cairo', Arial, sans-serif;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      box-shadow: 0 -2px 16px #2224a12d;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 18px 10px 18px;
+      gap: 24px;
+    }
+    .footer-col {
+      flex: 1 1 220px;
+      margin-bottom: 12px;
+      min-width: 200px;
+    }
+    .footer-logo {
+      font-size: 1.22em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-logo i {
+      color: #eec60a;
+      font-size: 1.4em;
+    }
+    .footer-col p {
+      color: #f7f7f7;
+      font-size: 1.07em;
+      margin-bottom: 6px;
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      color: #eec60a;
+      font-size: 1.13em;
+      font-weight: bold;
+      margin-bottom: 8px;
+      margin-top: 0;
+    }
+    .footer-col.links h4 {
+      margin-bottom: 7px;
+      margin-top: 0;
+      padding-top: 0;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-col ul li {
+      margin-bottom: 7px;
+    }
+    .footer-col ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.09em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+      line-height: 1.7;
+    }
+    .footer-col ul li a:hover {
+      color: #eec60a;
+      text-decoration: underline;
+    }
+    .footer-col.contact p {
+      font-size: 1.07em;
+      margin: 0 0 7px 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .footer-social {
+      margin-top: 7px;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-start;
+    }
+    .footer-social a {
+      color: #fff;
+      background: #eec60a;
+      border-radius: 50%;
+      padding: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.13em;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .footer-social a:hover {
+      background: #fff;
+      color: #1b2d53;
+      transform: scale(1.13) rotate(-8deg);
+    }
+    .footer-bottom {
+      background: #142042;
+      color: #eec60a;
+      text-align: center;
+      padding: 10px 0 7px 0;
+      font-size: 1.08em;
+      letter-spacing: 0.5px;
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+      margin-top: 0;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .footer-copyright {
+      color: #fff;
+      font-size: 0.96em;
+      margin-top: 7px;
+      margin-bottom: 0;
+      opacity: 0.95;
+      text-align: center;
+      letter-spacing: .2px;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0;
+      line-height: 1.7;
+      display: block;
+    }
+
+    /* ==== Responsive ==== */
+    @media (max-width: 900px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 18px 5vw 7px 5vw;
+      }
+      .footer-col {
+        min-width: unset;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .footer-col.links h4 {
+        margin-bottom: 7px;
+      }
+    }
+    @media (max-width: 600px) {
+      .main-footer {
+        border-radius: 17px 17px 0 0;
+        margin-top: 18px;
+        padding-bottom: 60px; /* حتى لا يتم تغطية الفوتر من القائمة السفلية */
+      }
+      .footer-container {
+        padding: 11px 2vw 4px 2vw;
+        gap: 0;
+      }
+      .footer-col {
+        margin-bottom: 7px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .footer-logo { font-size: 1.04em;}
+      .footer-bottom { font-size: 0.97em;}
+      .footer-col,
+      .footer-col * {
+        text-align: center !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+      .footer-col h4 {
+        margin-bottom: 6px;
+      }
+      .footer-social {
+        justify-content: center !important;
+        margin-bottom: 5px;
+        margin-top: 5px;
+      }
+      .copy{
+        margin-bottom: 1rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .footer-container { padding: 7px 1vw 3px 1vw; }
+      .footer-col h4 { font-size: 1em; }
+      .footer-bottom { font-size: 0.93em;}
+    }
+  </style>
+  <div class="footer-container">
+    <div class="footer-col brand">
+      <div class="footer-logo">
+        <i class="fa-solid fa-laptop-code"></i>
+        <span>ICDL - Ziad Hagagy</span>
+      </div>
+      <p>تدريب احترافي وعملي في مجال الحاسوب بشهادات معتمدة ودعم مستمر.</p>
+    </div>
+    <div class="footer-col links">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="index.html"><i class="fa fa-home"></i> الرئيسية</a></li>
+        <li><a href="courses.html"><i class="fa fa-book-open"></i> الدورات</a></li>
+        <li><a href="register.html"><i class="fa fa-user-plus"></i> الحجز</a></li>
+        <li><a href="dashboard.html"><i class="fa fa-user-shield"></i> ملفات المشتركين</a></li>
+      </ul>
+    </div>
+    <div class="footer-col contact">
+      <h4>تواصل معنا</h4>
+      <p><i class="fa fa-envelope"></i> info@icdl-academy.com</p>
+      <p><i class="fa fa-phone"></i> 01012345678</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom copy">
+    جميع الحقوق محفوظة &copy; 2025 ICDL م/ زياد حجاجي
+  </div>
+</footer>
+  <script>
+    // تحميل بيانات المستخدمين من ملف JSON خارجي
+    fetch('data/users-course1.json')
+    .then(response => response.json())
+    .then(data => {
+        usersData = data;
+        // يمكنك هنا تنفيذ أكواد إضافية عند التحميل إن أردت
+    });
+    let usersData = [];
+
+    // عناصر الصفحة
+    const loginForm = document.getElementById('loginForm');
+    const loginError = document.getElementById('loginError');
+    const userProfileSection = document.getElementById('userProfileSection');
+    const userFilesSection = document.getElementById('userFilesSection');
+    const courseSelect = document.getElementById('userCourse');
+    const filesListDiv = document.getElementById('filesList');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const linksSection = document.getElementById('linksSection');
+    const courseLinksList = document.getElementById('courseLinksList');
+    const certificateSection = document.getElementById('certificateSection');
+    const certificateLink = document.getElementById('certificateLink');
+    const certificateMessage = document.getElementById('certificateMessage');
+    const supportForm = document.getElementById('supportForm');
+    const supportMessage = document.getElementById('supportMessage');
+    const supportSuccess = document.getElementById('supportSuccess');
+    const supportError = document.getElementById('supportError');
+    // user profile fields
+    const profileName = document.getElementById('profileName');
+    const profileDate = document.getElementById('profileDate');
+    // متغيرات المستخدم الحالي
+    let currentUser = null;
+    let userCourses = [];
+    let userProfile = {};
+
+    // عند تحميل الصفحة تحقق من LocalStorage
+    window.addEventListener('DOMContentLoaded', function() {
+      const savedUser = localStorage.getItem("icdl_user");
+      if(savedUser) {
+        currentUser = JSON.parse(savedUser);
+        userCourses = currentUser.courses || [];
+        userProfile = currentUser;
+        showProfileInfo();
+        showUserSection();
+        fillCourses(userCourses);
+      }
+    });
+
+    // ---- تسجيل الدخول ----
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = loginForm.username.value.trim();
+      const password = loginForm.password.value.trim();
+      // تحقق محلي من الملف
+      const user = usersData.find(u => u.username === username && u.password === password);
+      if(user){
+        currentUser = user;
+        userCourses = user.courses || [];
+        userProfile = user;
+        // حفظ بيانات الدخول في LocalStorage
+        localStorage.setItem("icdl_user", JSON.stringify(user));
+        showProfileInfo();
+        showUserSection();
+        fillCourses(userCourses);
+      }else{
+        loginError.style.display = 'block';
+      }
+    });
+
+    function showProfileInfo(){
+      profileName.textContent = userProfile.name || '-';
+      profileDate.textContent = userProfile.signupDate || '-';
+      userProfileSection.style.display = 'flex';
+    }
+
+    function showUserSection(){
+      loginForm.style.display = 'none';
+      loginError.style.display = 'none';
+      userFilesSection.style.display = 'flex';
+      logoutBtn.style.display = 'block';
+    }
+
+    // تعبئة قائمة الدورات
+    function fillCourses(courses){
+      courseSelect.innerHTML = '';
+      courses.forEach((course, idx) => {
+        const opt = document.createElement('option');
+        opt.value = idx;
+        opt.textContent = course.name;
+        courseSelect.appendChild(opt);
+      });
+      showCourseContent(0);
+    }
+
+    // عند تغيير الدورة
+    courseSelect.addEventListener('change', function(){
+      showCourseContent(this.value);
+    });
+
+    // عرض بيانات الكورس (ملفات - شهادة - روابط الملفات الإضافية)
+    function showCourseContent(courseIdx){
+      const idx = parseInt(courseIdx, 10);
+      if(isNaN(idx) || !userCourses[idx]) return;
+      const course = userCourses[idx];
+
+      // ملفات الدورة
+      showFiles(course.files || []);
+
+      // روابط الملفات الإضافية
+      fillLinks(course.additionalFiles || []);
+
+      // شهادة الدورة
+      if (course.certificateAvailable && course.certificate) {
+        certificateSection.style.display = 'flex';
+        certificateLink.style.display = 'inline-block';
+        certificateMessage.innerHTML = '<i class="fa fa-certificate"></i> الشهادة متاحة للتحميل';
+        certificateLink.href = course.certificate;
+        certificateLink.setAttribute('download', 'شهادة ' + course.name + '.pdf');
+      } else {
+        certificateSection.style.display = 'flex';
+        certificateLink.style.display = 'none';
+        certificateMessage.innerHTML = '<i class="fa fa-certificate"></i> الشهادة غير متاحة بعد';
+      }
+    }
+
+    // عرض ملفات الكورس
+    function showFiles(files){
+      let html = '<h3>ملفات الدورة:</h3>';
+      if(files && files.length > 0){
+        html += files.map(f =>
+          `<div class="file-item">
+            <i class="fa fa-file-download"></i>
+            <span class="filename">${f.name}</span>
+            <a class="download-link" href="${f.url}" data-filename="${f.name}" download>تحميل</a>
+          </div>`
+        ).join('');
+      }else{
+        html += '<div>لا توجد ملفات متاحة لهذا الكورس حاليا.</div>';
+      }
+      filesListDiv.innerHTML = html;
+    }
+
+    // روابط الملفات الإضافية
+    function fillLinks(links){
+      courseLinksList.innerHTML = '';
+      if(!links || !links.length) {
+        linksSection.style.display = 'none';
+        return;
+      }
+      links.forEach(link => {
+        const icon = '<i class="fa fa-file"></i>';
+        const li = document.createElement('li');
+        li.innerHTML = `${icon} <a href="${link.url}" target="_blank">${link.label}</a>`;
+        courseLinksList.appendChild(li);
+      });
+      linksSection.style.display = 'block';
+    }
+
+    // تسجيل الخروج
+    logoutBtn.addEventListener('click', function(){
+      currentUser = null;
+      userCourses = [];
+      userProfile = {};
+      localStorage.removeItem("icdl_user"); // امسح بيانات الدخول
+      userProfileSection.style.display = 'none';
+      userFilesSection.style.display = 'none';
+      loginForm.style.display = 'block';
+      loginForm.reset();
+    });
+
+    // إخفاء رسالة الخطأ عند الكتابة
+    loginForm.username.addEventListener('input', () => loginError.style.display = 'none');
+    loginForm.password.addEventListener('input', () => loginError.style.display = 'none');
+
+    // ارسال سؤال للدعم عبر واتساب مع الاسم وتاريخ الدورة
+    const myWhatsappNumber = "201027888008"; // عدل هذا لرقمك مع كود الدولة بدون +
+    supportForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      supportSuccess.style.display = 'none';
+      supportError.style.display = 'none';
+      const msg = supportMessage.value.trim();
+      if(!msg) {
+        supportError.textContent = 'يرجى كتابة سؤالك أولاً';
+        supportError.style.display = 'block';
+        return;
+      }
+      if (!currentUser || !currentUser.name || !currentUser.signupDate) {
+        supportError.textContent = 'يجب تسجيل الدخول أولاً.';
+        supportError.style.display = 'block';
+        return;
+      }
+      // تكوين نص رسالة الواتساب متضمن الاسم وتاريخ الدورة
+      const fullMsg = ` الاسم: ${currentUser.name}%0A تاريخ الدورة: ${currentUser.signupDate}%0A السؤال أو الاستفسار:%0A${encodeURIComponent(msg)}`;
+      // توليد رابط الواتساب
+      const whatsappUrl = `https://wa.me/${myWhatsappNumber}?text=${fullMsg}`;
+      // فتح الواتساب في نافذة جديدة
+      window.open(whatsappUrl, "_blank");
+      supportSuccess.textContent = 'سيتم تحويلك إلى واتساب لإرسال سؤالك مباشرة.';
+      supportSuccess.style.display = 'block';
+      supportMessage.value = '';
+    });
+  </script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

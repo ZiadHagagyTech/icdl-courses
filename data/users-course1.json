@@ -1,0 +1,43 @@
+[
+  {
+    "username": "ahmed123",
+    "password": "1234",
+    "name": "أحمد محمد محمود علي",
+    "signupDate": "2025-05-01",
+    "courses": [
+      {
+        "name": "ICDL للمبتدئين",
+        "files": [
+          { "name": "دليل الطالب.pdf", "url": "files/ahmed123/icdl-basic-guide.pdf" },
+          { "name": "ملخص الدورة.docx", "url": "files/ahmed123/icdl-basic-summary.docx" }
+        ],
+        "certificateAvailable": true,
+        "certificate": "files/ahmed123/icdl-basic-certificate.pdf",
+        "additionalFiles": [
+          { "url": "files/ahmed123/exam-bank.pdf", "label": "بنك أسئلة الدورة" },
+          { "url": "files/ahmed123/extra-exercises.pdf", "label": "تدريبات إضافية" }
+        ]
+      }
+    ]
+  },
+  {
+    "username": "zienab123",
+    "password": "123456",
+    "name": "زينب عبدالجليل ( بحبككككك )",
+    "signupDate": "2025-05-03",
+    "courses": [
+      {
+        "name": "ICDL للمبتدئين",
+        "files": [
+          { "name": "ملفات التدريس.zip", "url": "files/sara2025/teaching-materials.zip" },
+          { "name": "تمارين تطبيقية.pdf", "url": "files/sara2025/exercises.pdf" }
+        ],
+        "certificateAvailable": true,
+        "certificate": "files/sara2025/teacher-certificate.pdf",
+        "additionalFiles": [
+          { "url": "files/sara2025/extra-materials.zip", "label": "ملفات شرح إضافية" }
+        ]
+      }
+    ]
+  }
+]

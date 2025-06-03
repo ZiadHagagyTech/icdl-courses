@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>حجز الدورات | ICDL أكاديمي</title>
+  <!-- Choices.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+  <link rel="stylesheet" href="assets/css/index.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+    .register-hero {
+      background: linear-gradient(120deg, #0069d9 80%, #eec60a 100%);
+      color: #fff;
+      padding: 44px 0 26px 0;
+      text-align: center;
+    }
+    .register-hero h1 {
+      font-size: 2.2em;
+      font-weight: 900;
+      margin-bottom: 13px;
+    }
+    .register-hero p {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: #eec60a;
+    }
+    .booking-section {
+      max-width: 450px;
+      margin: 28px auto 0 auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 8px #0069d922;
+      padding: 32px 20px 22px 20px;
+      box-sizing: border-box;
+      width: 100%;
+      position: relative;
+      transition: max-width 0.2s, padding 0.2s;
+    }
+    .booking-section form label {
+      font-weight: bold;
+      margin-bottom: 3px;
+      display: inline-block;
+    }
+    .booking-section input,
+    .choices__inner {
+      width: 100% !important;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      margin-top: 4px;
+      margin-bottom: 14px;
+      font-family: 'Cairo', Arial, sans-serif;
+      font-size: 1em;
+      background: #f8fafc;
+      transition: border .2s;
+      outline: none;
+      display: block;
+    }
+    .choices__inner {
+      background: #f8fafc !important;
+      border: 1.5px solid #eee !important;
+      min-height: 44px;
+      padding-right: 12px !important;
+      padding-left: 32px !important;
+    }
+    .choices__list--dropdown {
+      max-width: 100% !important;
+      min-width: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      border-radius: 0 0 10px 10px;
+      z-index: 9999;
+      box-shadow: 0 12px 18px #0069d933;
+      font-size: 1em;
+    }
+    .choices__list--dropdown .choices__item {
+      white-space: normal;
+      word-break: break-word;
+      text-align: right;
+    }
+    .choices__list--single {
+      text-align: right;
+    }
+    .choices[data-type*=select-one] .choices__inner {
+      padding-left: 32px !important;
+      cursor: pointer;
+    }
+    .choices[data-type*=select-one] .choices__inner:after {
+      left: 8px;
+      right: unset;
+      border-color: #888 transparent transparent transparent;
+    }
+    .booking-section input:focus,
+    .choices__inner.is-focused {
+      border: 1.5px solid #0069d9 !important;
+      background: #f6f9fc !important;
+    }
+    .booking-section .btn {
+      width: 100%;
+      margin: 0;
+    }
+    .booking-section #successMsg {
+      margin-top: 13px;
+      text-align: center;
+    }
+    .custom-select-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      display: block;
+    }
+    @media (max-width: 800px) {
+      .booking-section {
+        max-width: 97vw;
+        padding: 20px 4vw 22px 4vw;
+      }
+    }
+    @media (max-width: 600px) {
+      .booking-section {
+        max-width: 97vw;
+        padding: 18px 5vw 17px 5vw;
+      }
+      .choices__list--dropdown {
+        max-width: 100vw !important;
+        width: 100vw !important;
+        min-width: 0 !important;
+        left: 0 !important;
+        border-radius: 0 0 10px 10px;
+      }
+      .choices__inner {
+        font-size: 1.08em;
+      }
+      .custom-select-wrapper {
+        max-width: 100vw;
+        width: 100vw;
+      }
+    }
+    @media (max-width: 430px) {
+      .choices__inner { font-size: 1em; }
+      .booking-section { padding: 11px 3vw 15px 3vw; }
+    }
+    .contact-support-section .support-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+    @media (max-width: 600px) {
+      .contact-support-section .support-links {
+        gap: 13px 17px;
+      }
+      .contact-support-section .support-links a {
+        min-width: 120px;
+        text-align: center;
+      }
+    }
+    @media (max-width: 430px) {
+      .contact-support-section .support-links {
+        gap: 12px 10px;
+      }
+    }
+    .booking-options {
+      background: #f6f9fc;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px #eec60a22;
+      padding: 28px 22px 18px 22px;
+      margin: 28px auto 0 auto;
+      max-width: 650px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      justify-content: center;
+      align-items: flex-start;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .option-card {
+      background: #fff;
+      border-radius: 11px;
+      box-shadow: 0 2px 8px #0069d922;
+      padding: 18px 15px;
+      flex: 1 1 220px;
+      min-width: 200px;
+      max-width: 290px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      box-sizing: border-box;
+    }
+    .option-card i {
+      font-size: 2em;
+      margin-bottom: 4px;
+      color: #0069d9;
+    }
+    .option-card.online i { color: #eec60a;}
+    .option-title {
+      font-weight: bold;
+      color: #0069d9;
+      font-size: 1.07em;
+    }
+    .option-card.online .option-title { color: #eec60a; }
+    .option-desc { color: #444; font-size: 0.98em; margin-bottom: 0; }
+    .contact-support-section {
+      background: #fff;
+      margin: 32px auto 0 auto;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px #0069d922;
+      max-width: 500px;
+      padding: 26px 18px 16px 18px;
+      text-align: center;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .contact-support-section h3 {
+      color: #0069d9;
+      font-weight: 900;
+      margin-bottom: 8px;
+      font-size: 1.18em;
+    }
+    .contact-support-section p {
+      color: #444;
+      font-size: 1em;
+      margin-bottom: 11px;
+    }
+    .contact-support-section .support-links a {
+      color: #fff;
+      background: #0069d9;
+      border-radius: 7px;
+      padding: 7px 14px;
+      margin: 0 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.06em;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .contact-support-section .support-links a.whatsapp { background: #25d366; }
+    .contact-support-section .support-links a:hover { opacity: 0.85; }
+    .faq-section {
+      background: #f8fafc;
+      margin: 36px 0 0 0;
+      padding: 24px 0 10px 0;
+      box-sizing: border-box;
+      width: 100vw;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+    .faq-section h2 {
+      text-align: center;
+      color: #0069d9;
+      font-size: 2em;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 10px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .faq-item {
+      border-bottom: 1px solid #eee;
+      margin-bottom: 8px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px #eec60a11;
+      padding: 0 10px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .faq-question {
+      background: none;
+      border: none;
+      color: #0069d9;
+      font-size: 1.09em;
+      font-weight: bold;
+      width: 100%;
+      text-align: right;
+      padding: 15px 0 7px 0;
+      outline: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .faq-answer {
+      display: none;
+      color: #333;
+      font-size: 0.99em;
+      padding-bottom: 10px;
+      padding-right: 5px;
+    }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    @media (max-width: 1000px) {
+      .booking-options { max-width: 98vw; }
+      .booking-section { max-width: 98vw; }
+      .contact-support-section { max-width: 98vw; }
+    }
+    @media (max-width: 800px) {
+      .booking-options { flex-direction: column; align-items: center;}
+    }
+    @media (max-width: 550px) {
+      .booking-section, .contact-support-section { padding: 14px 2vw;}
+      .option-card { min-width: 150px; max-width: 99vw; }
+    }
+    @media (max-width: 430px) {
+      .register-hero h1 { font-size: 1.21em;}
+      .register-hero p { font-size: 1em;}
+      .booking-section, .contact-support-section { padding: 5px 2vw;}
+      .option-card { padding: 7px 4px;}
+      .faq-section h2 { font-size: 1.2em;}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <div class="navbar">
+      <div class="logo"><i class="fa-solid fa-laptop-code"></i> ICDL - Ziad Hagagy</div>
+      <nav id="mainNav">
+        <a href="index.html"><i class="fa fa-home"></i> الرئيسية</a>
+        <a href="courses.html"><i class="fa fa-book-open"></i> الدورات</a>
+        <a href="register.html" class="active"><i class="fa fa-user-plus"></i> الحجز</a>
+        <a href="dashboard.html"><i class="fa fa-user-shield"></i> ملفات المشتركين</a>
+      </nav>
+      <div class="hamburger" id="hamburgerBtn"><i class="fa fa-bars"></i></div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html"><i class="fa fa-home"></i> الرئيسية</a>
+      <a href="courses.html"><i class="fa fa-book-open"></i> الدورات</a>
+      <a href="register.html" class="active"><i class="fa fa-user-plus"></i> الحجز</a>
+      <a href="dashboard.html"><i class="fa fa-user-shield"></i> ملفات المشتركين</a>
+      <span class="close-mobile" id="closeMobile"><i class="fa fa-times"></i></span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="register-hero">
+    <h1>احجز مقعدك في دورة ICDL المعتمدة</h1>
+    <p>اختر الدورة ونظام الدراسة المناسب لك، واملأ بياناتك ليتم التواصل معك مباشرة!</p>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-section">
+    <form id="bookingForm" autocomplete="off">
+      <label for="name">الاسم الكامل</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">البريد الإلكتروني</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">رقم الهاتف</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="courseName">اختر الدورة</label>
+      <div class="custom-select-wrapper">
+        <select id="courseName" name="course" required class="custom-select">
+          <option value="">-- اختر الدورة --</option>
+          <option value="ICDL للمبتدئين">ICDL للمبتدئين</option>
+          <option value="ICDL للمعلمين">ICDL للمعلمين</option>
+          <option value="ICDL المتقدم">ICDL المتقدم</option>
+        </select>
+      </div>
+
+      <label for="studyMode">نظام الدراسة</label>
+      <div class="custom-select-wrapper">
+        <select id="studyMode" name="studyMode" required class="custom-select">
+          <option value="">-- اختر النظام --</option>
+          <option value="أونلاين">أونلاين (عن بعد)</option>
+          <option value="أوفلاين">أوفلاين (حضوري في الأكاديمية)</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn big-btn"><i class="fa fa-user-plus"></i> احجز الآن</button>
+      <div id="successMsg"></div>
+    </form>
+  </section>
+
+  <!-- OPTIONS SECTION -->
+  <section class="booking-options">
+    <div class="option-card online">
+      <i class="fa fa-globe"></i>
+      <div class="option-title">سهولة الحجز أونلاين</div>
+      <div class="option-desc">
+        يمكنك حجز مقعدك من أي مكان في دقائق قليلة، والدفع إلكترونياً أو عند الحضور.
+      </div>
+    </div>
+    <div class="option-card">
+      <i class="fa fa-calendar-check"></i>
+      <div class="option-title">مرونة في المواعيد</div>
+      <div class="option-desc">
+        اختر الموعد المناسب لك ضمن مواعيد الدورات المتاحة، وسنقوم بتأكيد الحجز عبر الهاتف أو البريد الإلكتروني.
+      </div>
+    </div>
+    <div class="option-card">
+      <i class="fa fa-lock"></i>
+      <div class="option-title">بياناتك بأمان</div>
+      <div class="option-desc">
+        جميع بياناتك سرية وتُستخدم فقط للتواصل معك حول الدورة، ولا يتم مشاركتها مع أي جهة خارجية.
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SUPPORT SECTION -->
+  <section class="contact-support-section">
+    <h3>تحتاج مساعدة أو لديك استفسار؟</h3>
+    <p>
+      فريق الدعم مستعد للإجابة على جميع أسئلتك حول الدورات، الحجز، أو نظام الدراسة.<br>
+      تواصل معنا عبر:
+    </p>
+    <div class="support-links">
+      <a href="mailto:info@icdl-academy.com"><i class="fa fa-envelope"></i> البريد الإلكتروني</a>
+      <a href="tel:01012345678"><i class="fa fa-phone"></i> الهاتف</a>
+      <a href="https://wa.me/201012345678" class="whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <h2>الأسئلة الشائعة حول الحجز</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">هل يمكنني اختيار نظام الدراسة المناسب لي؟ <i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer">نعم، جميع الدورات متاحة بنظام الأونلاين (عن بعد) ونظام الأوفلاين (حضوري)، ويمكنك الاختيار في نموذج الحجز.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">ما هي طرق الدفع المتاحة؟ <i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer">يمكنك الدفع إلكترونياً أو الدفع نقدًا عند الحضور لمقر الأكاديمية.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">متى يتم تأكيد الحجز بعد التسجيل؟ <i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer">سيتم التواصل معك خلال 24 ساعة عبر الهاتف أو البريد الإلكتروني لتأكيد الحجز وتحديد التفاصيل.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">هل الحجز ملزم بالدفع مباشرة؟ <i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer">لا، يمكنك الحجز أولاً وسيتم توضيح طريقة الدفع والتأكيد بعد التواصل معك مباشرة.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">هل يمكن استرجاع قيمة الحجز في حال تعذر الحضور؟ <i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer">نعم، يمكنك استرجاع قيمة الدورة أو تأجيل الحجز لموعد آخر حسب سياسة الأكاديمية.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS SECTION -->
+  <section class="steps-section">
+    <h2 class="section-title">خطوات الحجز والالتحاق بالدورة</h2>
+    <div class="steps-list">
+      <div class="step">
+        <div class="step-icon"><i class="fa fa-mouse-pointer"></i></div>
+        <div class="step-content">
+          <span>1</span>
+          <p>اختر الدورة ونظام الدراسة المناسب</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon"><i class="fa fa-user-edit"></i></div>
+        <div class="step-content">
+          <span>2</span>
+          <p>املأ بياناتك في النموذج</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon"><i class="fa fa-credit-card"></i></div>
+        <div class="step-content">
+          <span>3</span>
+          <p>انتظر تواصل فريق الدعم لإتمام الحجز</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon"><i class="fa fa-cloud-download-alt"></i></div>
+        <div class="step-content">
+          <span>4</span>
+          <p>ابدأ الدورة واحصل على ملفاتك وشهادتك</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM NAVIGATION (Mobile only) -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="index.html"><i class="fa fa-home"></i><span>الرئيسية</span></a>
+    <a href="courses.html"><i class="fa fa-book-open"></i><span>الدورات</span></a>
+    <a href="register.html" class="active"><i class="fa fa-user-plus"></i><span>الحجز</span></a>
+    <a href="dashboard.html"><i class="fa fa-user-shield"></i><span>الملفات</span></a>
+  </nav>
+
+  <!-- FOOTER -->
+    <footer class="main-footer">
+  <style>
+    .main-footer {
+      background: linear-gradient(120deg, #1b2d53 80%, #eec60a 100%);
+      color: #fff;
+      padding: 0;
+      margin-top: 40px;
+      font-family: 'Cairo', Arial, sans-serif;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      box-shadow: 0 -2px 16px #2224a12d;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 18px 10px 18px;
+      gap: 24px;
+    }
+    .footer-col {
+      flex: 1 1 220px;
+      margin-bottom: 12px;
+      min-width: 200px;
+    }
+    .footer-logo {
+      font-size: 1.22em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-logo i {
+      color: #eec60a;
+      font-size: 1.4em;
+    }
+    .footer-col p {
+      color: #f7f7f7;
+      font-size: 1.07em;
+      margin-bottom: 6px;
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      color: #eec60a;
+      font-size: 1.13em;
+      font-weight: bold;
+      margin-bottom: 8px;
+      margin-top: 0;
+    }
+    .footer-col.links h4 {
+      margin-bottom: 7px;
+      margin-top: 0;
+      padding-top: 0;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-col ul li {
+      margin-bottom: 7px;
+    }
+    .footer-col ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.09em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+      line-height: 1.7;
+    }
+    .footer-col ul li a:hover {
+      color: #eec60a;
+      text-decoration: underline;
+    }
+    .footer-col.contact p {
+      font-size: 1.07em;
+      margin: 0 0 7px 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .footer-social {
+      margin-top: 7px;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-start;
+    }
+    .footer-social a {
+      color: #fff;
+      background: #eec60a;
+      border-radius: 50%;
+      padding: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.13em;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .footer-social a:hover {
+      background: #fff;
+      color: #1b2d53;
+      transform: scale(1.13) rotate(-8deg);
+    }
+    .footer-bottom {
+      background: #142042;
+      color: #eec60a;
+      text-align: center;
+      padding: 10px 0 7px 0;
+      font-size: 1.08em;
+      letter-spacing: 0.5px;
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+      margin-top: 0;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .footer-copyright {
+      color: #fff;
+      font-size: 0.96em;
+      margin-top: 7px;
+      margin-bottom: 0;
+      opacity: 0.95;
+      text-align: center;
+      letter-spacing: .2px;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0;
+      line-height: 1.7;
+      display: block;
+    }
+
+    /* ==== Responsive ==== */
+    @media (max-width: 900px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 18px 5vw 7px 5vw;
+      }
+      .footer-col {
+        min-width: unset;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .footer-col.links h4 {
+        margin-bottom: 7px;
+      }
+    }
+    @media (max-width: 600px) {
+      .main-footer {
+        border-radius: 17px 17px 0 0;
+        margin-top: 18px;
+        padding-bottom: 60px; /* حتى لا يتم تغطية الفوتر من القائمة السفلية */
+      }
+      .footer-container {
+        padding: 11px 2vw 4px 2vw;
+        gap: 0;
+      }
+      .footer-col {
+        margin-bottom: 7px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .footer-logo { font-size: 1.04em;}
+      .footer-bottom { font-size: 0.97em;}
+      .footer-col,
+      .footer-col * {
+        text-align: center !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+      .footer-col h4 {
+        margin-bottom: 6px;
+      }
+      .footer-social {
+        justify-content: center !important;
+        margin-bottom: 5px;
+        margin-top: 5px;
+      }
+      .copy{
+        margin-bottom: 1rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .footer-container { padding: 7px 1vw 3px 1vw; }
+      .footer-col h4 { font-size: 1em; }
+      .footer-bottom { font-size: 0.93em;}
+    }
+  </style>
+  <div class="footer-container">
+    <div class="footer-col brand">
+      <div class="footer-logo">
+        <i class="fa-solid fa-laptop-code"></i>
+        <span>ICDL - Ziad Hagagy</span>
+      </div>
+      <p>تدريب احترافي وعملي في مجال الحاسوب بشهادات معتمدة ودعم مستمر.</p>
+    </div>
+    <div class="footer-col links">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="index.html"><i class="fa fa-home"></i> الرئيسية</a></li>
+        <li><a href="courses.html"><i class="fa fa-book-open"></i> الدورات</a></li>
+        <li><a href="register.html"><i class="fa fa-user-plus"></i> الحجز</a></li>
+        <li><a href="dashboard.html"><i class="fa fa-user-shield"></i> ملفات المشتركين</a></li>
+      </ul>
+    </div>
+    <div class="footer-col contact">
+      <h4>تواصل معنا</h4>
+      <p><i class="fa fa-envelope"></i> info@icdl-academy.com</p>
+      <p><i class="fa fa-phone"></i> 01012345678</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom copy">
+    جميع الحقوق محفوظة &copy; 2025 ICDL م/ زياد حجاجي
+  </div>
+</footer>
+  <!-- Choices.js -->
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var selects = document.querySelectorAll('select.custom-select');
+      selects.forEach(function(sel){
+        new Choices(sel, {
+          searchEnabled: false,
+          shouldSort: false,
+          itemSelectText: '',
+          position: 'bottom',
+          allowHTML: false,
+        });
+      });
+    });
+  </script>
+
+  <!-- Firebase & Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script>
+    // إعدادات فايربيز (تأكد من وضع بيانات مشروعك هنا)
+    const firebaseConfig = {
+      apiKey: "AIzaSyB_qOr1RzbdvhFGPefXaTMYmflssfbUrS0",
+      authDomain: "icdl-261b4.firebaseapp.com",
+      projectId: "icdl-261b4",
+      storageBucket: "icdl-261b4.appspot.com",
+      messagingSenderId: "1034739256423",
+      appId: "1:1034739256423:web:872187720b49d2a5ebd8c2"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const bookingForm = document.getElementById('bookingForm');
+    const successMsg = document.getElementById('successMsg');
+    bookingForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = bookingForm.name.value.trim();
+      const email = bookingForm.email.value.trim();
+      const phone = bookingForm.phone.value.trim();
+      const course = bookingForm.course.value || bookingForm.courseName.value;
+      const studyMode = bookingForm.studyMode.value;
+
+      if(!name || !email || !phone || !course || !studyMode) return;
+
+      const bookingData = {
+        name,
+        email,
+        phone,
+        course,
+        studyMode,
+        date: new Date().toISOString()
+      };
+
+      // أضف البيانات إلى Collection جديد bookings في Firestore
+      db.collection("bookings").doc(name).set(bookingData)
+        .then(() => {
+          successMsg.innerHTML = "تم إرسال طلبك بنجاح! سنقوم بالتواصل معك قريبًا.";
+          bookingForm.reset();
+        })
+        .catch(() => {
+          successMsg.innerHTML = "حدث خطأ أثناء الإرسال. حاول مرة أخرى.";
+        });
+    });
+  </script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
