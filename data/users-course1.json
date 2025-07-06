@@ -265,6 +265,32 @@
       }
     ]
   },
+  {
+    "username": "mariam.hassan",
+    "password": "Mariam@100",
+    "name": "مريم محمد سيد حسان",
+    "signupDate": "2025-07-09",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
 
 
 
