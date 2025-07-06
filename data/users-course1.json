@@ -1,43 +1,370 @@
 [
+
+
+
   {
-    "username": "ahmed123",
-    "password": "1234",
-    "name": "أحمد محمد محمود علي",
-    "signupDate": "2025-05-01",
+    "_comment": " ICDL & English ",
+
+    
+    "username": "ibrahim.saad",
+    "password": "Saad2025#",
+    "name": "إبراهيم ابوالحسن سعدالدين حسن",
+    "signupDate": "2025-07-05",
     "courses": [
       {
-        "name": "ICDL للمبتدئين",
+        "name": "ICDL",
         "files": [
-          { "name": "دليل الطالب.pdf", "url": "files/ahmed123/icdl-basic-guide.pdf" },
-          { "name": "ملخص الدورة.docx", "url": "files/ahmed123/icdl-basic-summary.docx" }
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
         ],
-        "certificateAvailable": true,
-        "certificate": "files/ahmed123/icdl-basic-certificate.pdf",
-        "additionalFiles": [
-          { "url": "files/ahmed123/exam-bank.pdf", "label": "بنك أسئلة الدورة" },
-          { "url": "files/ahmed123/extra-exercises.pdf", "label": "تدريبات إضافية" }
-        ]
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
       }
     ]
   },
   {
-    "username": "zienab123",
-    "password": "123456",
-    "name": "زينب عبدالجليل ( بحبككككك )",
-    "signupDate": "2025-05-03",
+    "username": "ahmed.elamir",
+    "password": "Elamir@22",
+    "name": "أحمد محمد أحمد الأمير",
+    "signupDate": "2025-07-05",
     "courses": [
       {
-        "name": "ICDL للمبتدئين",
+        "name": "ICDL",
         "files": [
-          { "name": "ملفات التدريس.zip", "url": "files/sara2025/teaching-materials.zip" },
-          { "name": "تمارين تطبيقية.pdf", "url": "files/sara2025/exercises.pdf" }
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
         ],
-        "certificateAvailable": true,
-        "certificate": "files/sara2025/teacher-certificate.pdf",
-        "additionalFiles": [
-          { "url": "files/sara2025/extra-materials.zip", "label": "ملفات شرح إضافية" }
-        ]
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+  {
+    "username": "esraa.abbas",
+    "password": "Esraa@77",
+    "name": "إسراء عبدالدائم عباس محمد",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+  {
+    "username": "habiba.sayed",
+    "password": "Habiba_19",
+    "name": "حبيبة سيد إبراهيم السيد",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+  {
+    "username": "habiba.omar",
+    "password": "Habiba@321",
+    "name": "حبيبة عمر أحمد محمد",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+  {
+    "username": "mahmoud.atia",
+    "password": "Atia2023",
+    "name": "محمود محمد عطيه محمد",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+  {
+    "username": "ahmed.jad",
+    "password": "Jad2025#",
+    "name": "أحمد محمد إبراهيم جادالكريم",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+  {
+    "username": "manar.zain",
+    "password": "Manar@99",
+    "name": "منار زين العابدين حسان حمدالله",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+  {
+    "username": "manar.sedeeq",
+    "password": "Manar@22",
+    "name": "منار محمد صديق طه",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+  {
+    "username": "nourhan.sedeeq",
+    "password": "Noura_321",
+    "name": "نورهان محمد صديق طه",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    "_comment": " ICDL ",
+
+    
+    "username": "yomna.reda",
+    "password": "Youmna@2030",
+    "name": "يمني الطيب محمد رضا",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      }
+    ]
+  },
+{
+    "username": "adham.kamel",
+    "password": "Adham_2035",
+    "name": "أدهم جمال محمد كامل",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      }
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    "_comment": " English ",
+
+    
+    "username": "fatma.hagag",
+    "password": "Fatma@2029",
+    "name": "فاطمة عبدالكريم أبوالحجاج عبدالحليم",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+  {
+    "username": "eman.farouk",
+    "password": "Eman#88",
+    "name": "إيمان عماد فاروق محمد",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
       }
     ]
   }
+
+
+
 ]
