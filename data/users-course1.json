@@ -302,8 +302,87 @@
       }
     ]
   },
-
-
+  {
+    "username": "yasmin.ali",
+    "password": "Yasmin#2030",
+    "name": "ياسمين علي السيد محمد",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" },
+          { "name": "محاضرة 2.pdf", "url": "https://drive.google.com/file/d/1Ck581PoE4wU-mC_Tjvg_2EAtyTKbB9T-/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+{
+    "username": "heba.abdeltawab",
+    "password": "Heba@2030",
+    "name": "هبه عبدالتواب محمد أحمد",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" },
+          { "name": "محاضرة 2.pdf", "url": "https://drive.google.com/file/d/1Ck581PoE4wU-mC_Tjvg_2EAtyTKbB9T-/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+{
+    "username": "manar.zain",
+    "password": "Manar@99",
+    "name": "منار زين العابدين حسان حمدالله",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "ICDL",
+        "files": [
+          { "name": "محاضرة 1.pdf", "url": "https://drive.google.com/file/d/1XeGqTvCkkxtDN_YLffLeH2SgITjulbi3/view?usp=sharing" },
+          { "name": "محاضرة 2.pdf", "url": "https://drive.google.com/file/d/1Ck581PoE4wU-mC_Tjvg_2EAtyTKbB9T-/view?usp=sharing" }
+          
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/icdl-certificate.pdf"
+      },
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
 
 
 
@@ -390,6 +469,23 @@
     "username": "eman.farouk",
     "password": "Eman#88",
     "name": "إيمان عماد فاروق محمد",
+    "signupDate": "2025-07-05",
+    "courses": [
+      {
+        "name": "اللغة الإنجليزية",
+        "files": [
+          { "name": "قواعد اللغة الانجليزية.pdf", "url": "https://drive.google.com/file/d/1R1buo80Ru6j2rE5a4RY_OKesMOYEu_E7/view?usp=sharing" },
+          { "name": "كورس انجليزي كامل.pdf", "url": "https://drive.google.com/file/d/1uP3BfFIIJvHVKavq7nPtDvswRMFrzHhm/view?usp=sharing" }
+        ],
+        "certificateAvailable": false,
+        "certificate": "files/ahmed123/english-certificate.pdf"
+      }
+    ]
+  },
+  {
+    "username": "aliaa.shehat",
+    "password": "Aliaa#2030",
+    "name": "علياء على شحات حسين",
     "signupDate": "2025-07-05",
     "courses": [
       {
